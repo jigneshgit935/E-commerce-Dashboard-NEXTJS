@@ -46,7 +46,12 @@ const MenuLinks = ({ isOpen }: { isOpen: Boolean }) => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link href={href}>
-                    <motion.div animate={isActive?"active":"inActive"} transition={{duration:0.3}} variants={linkVariants} className="flex gap-4 py-1 items-center px-4 rounded-md">
+                    <motion.div
+                      animate={isActive ? "active" : "inActive"}
+                      transition={{ duration: 0.3 }}
+                      variants={linkVariants}
+                      className="flex gap-4 py-1 items-center px-4 rounded-md"
+                    >
                       <Icon size={23} className="mb-1" />
                       <span className={`max-md:hidden ${isOpen && "hidden"}`}>
                         {label}
