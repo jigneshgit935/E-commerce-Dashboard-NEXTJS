@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navigation/Navbar";
 import { ThemeProvider } from "@/provider/theme-provider";
+import Sidebar from "@/components/navigation/Sidebar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,17 +23,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
       <body className={poppins.className}>
-        <ThemeProvider 
-           attribute="class"
-            defaultTheme="system"
-        >
+        <ThemeProvider attribute="class" defaultTheme="system">
+          <Navbar />
+          <main className="flex">
+            <Sidebar />
+            <section className="min-h-screen flex-1">
 
-        <Navbar/>
-        {children}
+            {children}
+            </section>
+          </main>
         </ThemeProvider>
-        </body>
+      </body>
     </html>
   );
 }
